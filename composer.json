@@ -1,0 +1,89 @@
+{
+    "name": "larevio/persian-providers",
+    "description": "Laravel integrations for Iranian payment, SMS, inquiry, and exchange providers",
+    "keywords": [
+        "larevio",
+        "laravel",
+        "persian providers",
+        "iran",
+        "payment gateway",
+        "shaparak",
+        "sms",
+        "kyc",
+        "exchange"
+    ],
+    "homepage": "https://github.com/larevio/persian-providers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "larevio",
+            "email": "justasimpleentity@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^12.0 || ^13.0",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.4",
+        "laravel/pint": "^1.14",
+        "nunomaduro/collision": "^8.8",
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "pestphp/pest": "^3.0 || ^4.0",
+        "pestphp/pest-plugin-arch": "^3.0 || ^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0 || ^4.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0"
+    },
+    "suggest": {
+        "ext-intl": "Required for Sabanovin scheduling (Jalali date formatting)."
+    },
+    "autoload": {
+        "psr-4": {
+            "Larevio\\PersianProviders\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Larevio\\PersianProviders\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=512M",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "format-check": "vendor/bin/pint --test",
+        "check": [
+            "@test",
+            "@analyse",
+            "@format-check",
+            "@composer audit"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Larevio\\PersianProviders\\PersianProvidersServiceProvider"
+            ]
+        }
+    },
+    "support": {
+        "issues": "https://github.com/larevio/persian-providers/issues",
+        "source": "https://github.com/larevio/persian-providers"
+    }
+}
